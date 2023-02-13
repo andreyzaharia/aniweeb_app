@@ -3,14 +3,14 @@ package aniweeb.com.models;
 public class Portada {
     private int id, viewers;
     private double puntuacion;
-    private String titulo, categorias;
+    private String titulo, categorias, img_url;
 
-    public Portada(int id, int viewers, double puntuacion, String titulo, String categorias) {
+    public Portada(int id, int viewers, double puntuacion, String titulo, String img_url) {
         this.id = id;
         this.viewers = viewers;
         this.puntuacion = puntuacion;
         this.titulo = titulo;
-        this.categorias = categorias;
+        this.img_url = img_url;
     }
 
     public int getId() {
@@ -51,5 +51,13 @@ public class Portada {
 
     public void setCategorias(String categorias) {
         this.categorias = categorias;
+    }
+
+    public String getImg_url() {
+        return img_url;
+    }
+
+    public void setImg_url(String img_url) {
+        this.img_url = img_url;
     }
 }

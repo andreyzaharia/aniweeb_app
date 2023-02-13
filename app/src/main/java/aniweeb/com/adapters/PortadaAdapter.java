@@ -4,11 +4,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -37,9 +40,21 @@ public class PortadaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
         final Portada portada = listPortadas.get(position);
         PortadaAdapter.ViewHolder portadaHolder = (PortadaAdapter.ViewHolder) viewHolder;
-        portadaHolder.TVTitle.setText(portada.getTitulo());
-        portadaHolder.TVcategories.setText(portada.getCategorias());
 
+        portadaHolder.TVTitle.setText(portada.getTitulo());
+        Picasso.with(mContext).load(portada.getImg_url()).into(portadaHolder.im_anime);
+
+        if (portada.getPuntuacion() > 0) {
+            portadaHolder.lay_puntuacion.setVisibility(View.VISIBLE);
+            portadaHolder.TVMean.setText(String.valueOf(portada.getPuntuacion()));
+            portadaHolder.TVPopularity.setText(String.valueOf(portada.getViewers()));
+
+        } else {
+            portadaHolder.lay_puntuacion.setVisibility(View.GONE);
+            portadaHolder.TVMean.setVisibility(View.GONE);
+            portadaHolder.TVPopularity.setVisibility(View.GONE);
+
+        }
     }
 
     @Override
@@ -49,13 +64,19 @@ public class PortadaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView TVTitle, TVcategories;
+        TextView TVTitle, TVcategories, TVMean, TVPopularity;
+        ImageView im_anime;
+        LinearLayout lay_puntuacion;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             TVTitle = itemView.findViewById(R.id.txt_title);
             TVcategories = itemView.findViewById(R.id.txt_categories);
+            im_anime = itemView.findViewById(R.id.im_anime);
+            TVMean = itemView.findViewById(R.id.txt_mean);
+            TVPopularity = itemView.findViewById(R.id.txt_popularity);
+            lay_puntuacion = itemView.findViewById(R.id.lay_puntuacion);
 
         }
     }

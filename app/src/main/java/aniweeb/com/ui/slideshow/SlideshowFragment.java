@@ -2,11 +2,13 @@ package aniweeb.com.ui.slideshow;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -15,12 +17,21 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.VolleyError;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import aniweeb.com.R;
+import aniweeb.com.URLs.URLs;
 import aniweeb.com.adapters.PortadaAdapter;
 import aniweeb.com.databinding.FragmentSlideshowBinding;
 import aniweeb.com.models.Portada;
+import aniweeb.com.restapi.RestAPIWebServices;
 
 public class SlideshowFragment extends Fragment implements View.OnClickListener{
 
@@ -61,17 +72,63 @@ public class SlideshowFragment extends Fragment implements View.OnClickListener{
         recyclerView.setHasFixedSize(true);
         layoutManager = new GridLayoutManager(getContext(),2);
 
-        listPortadas = new ArrayList<>();
-        listPortadas.add(new Portada(1, 890988,9.89, "Naruto Shippuden", "Action, romance"));
-        listPortadas.add(new Portada(2, 890988,9.89, "Naruto Shippuden 2", "Action, romance"));
-        listPortadas.add(new Portada(3, 890988,9.89, "Naruto Shippuden 3", "Action, romance"));
-        listPortadas.add(new Portada(4, 890988,9.89, "Naruto Shippuden 4", "Action, romance"));
-        listPortadas.add(new Portada(5, 890988,9.89, "Naruto Shippuden 5", "Action, romance"));
-        listPortadas.add(new Portada(6, 890988,9.89, "Naruto Shippuden 6", "Action, romance"));
 
-        PortadaAdapter portadaAdapter = new PortadaAdapter(listPortadas,getContext());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(portadaAdapter);
+        getAnimeRanking("tv");
+    }
+
+    private void getAnimeRanking(String ranking_type) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("ranking_type", "airing");
+        params.put("limit", String.valueOf(10));
+
+
+        RestAPIWebServices restAPIWebServices = new RestAPIWebServices(getContext(), params, URLs.getRankingAnimeList + "?ranking_type=" + ranking_type + "&limit=10&offset=0&fields=mean,num_scoring_users");
+        restAPIWebServices.getResponseWithDataApi(new RestAPIWebServices.VolleyCallback() {
+            @Override
+            public void onSuccess(String result) {
+                JSONObject jsonObject = null;
+                try {
+                    jsonObject = new JSONObject(result);
+                    listPortadas = new ArrayList<>();
+
+                    Log.e("jsonObject", jsonObject.toString());
+                    JSONArray data = jsonObject.getJSONArray("data");
+                    for (int i = 0; i < data.length(); i++) {
+                        JSONObject element = data.getJSONObject(i);
+                        JSONObject node = element.getJSONObject("node");
+                        int id_anime = node.getInt("id");
+                        String title = node.getString("title");
+                        JSONObject main_picture = node.getJSONObject("main_picture");
+                        String url_img_m = main_picture.getString("large");
+
+                        if (!node.isNull("mean")) {
+                            int num_scoring_users = node.getInt("num_scoring_users");
+                            double mean = node.getDouble("mean");
+
+                            listPortadas.add(new Portada(id_anime, num_scoring_users, mean, title, url_img_m));
+                        }else {
+                            listPortadas.add(new Portada(id_anime,0,0, title, url_img_m));
+
+                        }
+                    }
+
+                    PortadaAdapter portadaAdapter = new PortadaAdapter(listPortadas,getContext());
+                    recyclerView.setLayoutManager(layoutManager);
+                    recyclerView.setAdapter(portadaAdapter);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Log.e("error", e.toString());
+                    Toast.makeText(getContext(),getContext().getString(R.string.general_error), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("error", error.toString());
+                Toast.makeText(getContext(),getContext().getString(R.string.general_error), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -85,15 +142,19 @@ public class SlideshowFragment extends Fragment implements View.OnClickListener{
         switch (view.getId()) {
             case R.id.lay_finalizado:
                 changeOption(1);
+                getAnimeRanking("tv");
+
                 break;
 
             case R.id.lay_emision:
                 changeOption(2);
+                getAnimeRanking("airing");
 
                 break;
 
             case R.id.lay_prox:
                 changeOption(3);
+                getAnimeRanking("upcoming");
 
                 break;
         }

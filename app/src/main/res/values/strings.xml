@@ -15,4 +15,15 @@
     <string name="noticias">Noticias</string>
     <string name="estrenos">Estrenos</string>
     <string name="buscar">Buscar..</string>
+
+
+
+
+
+    <string name="expira_sesion">Sesión expirada</string>
+    <string name="general_error">Parece que ha habido un error. Inténtalo más tarde</string>
+
+
+    <string name="client_id">e23ae05e01e71b0478325eb5281ac713</string>
+
 </resources>

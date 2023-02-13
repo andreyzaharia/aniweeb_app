@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/item_grid_estrenos.xml" value="0.3555253623188406" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/drawable/bg_item_resena.xml" value="0.333" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/drawable/bg_layout_purple.xml" value="0.333" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/drawable/bg_no_selected.xml" value="0.333" />
@@ -25,7 +26,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

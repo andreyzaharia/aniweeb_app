@@ -11,32 +11,35 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/im_anime"
+            android:layout_width="190dp"
+            android:layout_height="260dp"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/naruto" />
 
         <LinearLayout
+            android:id="@+id/lay_puntuacion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_item_resena"
+            android:layout_alignStart="@id/im_anime"
+            android:layout_alignBottom="@id/im_anime"
             android:alpha="0.9"
-            android:padding="10dp"
-            android:layout_alignBottom="@id/imageView2"
-            android:layout_alignStart="@id/imageView2"
-            android:orientation="vertical">
+            android:background="@drawable/bg_item_resena"
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
+
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/txt_mean"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="9.02" />
+                    android:text="9.02"
+                    android:textColor="@color/white" />
 
                 <ImageView
                     android:id="@+id/imageView3"
@@ -46,6 +49,7 @@
                     android:layout_marginLeft="5dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/icons8_estrella_relleno_120___" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -53,12 +57,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
+
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/txt_popularity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="647.789"/>
+                    android:text="647.789"
+                    android:textColor="@color/white" />
 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -68,13 +73,14 @@
                     android:layout_marginLeft="5dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/icons8_llamada_de_conferencia_48" />
+
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/imageView2"
+            android:layout_below="@id/im_anime"
             android:orientation="vertical">
 
             <TextView
