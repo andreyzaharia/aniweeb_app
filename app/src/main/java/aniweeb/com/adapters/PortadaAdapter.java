@@ -19,8 +19,8 @@ import aniweeb.com.R;
 import aniweeb.com.models.Portada;
 
 public class PortadaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
-    private ArrayList<Portada> listPortadas;
-    private Context mContext;
+    private final ArrayList<Portada> listPortadas;
+    private final Context mContext;
 
     public PortadaAdapter(ArrayList<Portada> listPortadas, Context mContext) {
         this.listPortadas = listPortadas;
@@ -31,7 +31,7 @@ public class PortadaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        RecyclerView.ViewHolder viewHolder = new PortadaAdapter.ViewHolder(inflater.inflate(R.layout.item_grid_estrenos,parent,false));
+        RecyclerView.ViewHolder viewHolder = new ViewHolder(inflater.inflate(R.layout.item_grid_estrenos, parent, false));
         return viewHolder;
 
     }
@@ -62,7 +62,7 @@ public class PortadaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         return listPortadas.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView TVTitle, TVcategories, TVMean, TVPopularity;
         ImageView im_anime;

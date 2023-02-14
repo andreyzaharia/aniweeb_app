@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-    <gradient
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-        android:startColor="@color/gris_claro"
-        android:endColor="@color/gris_claro"
-        android:angle="270"
-        />
-    <corners android:topLeftRadius="10dp"
-        android:topRightRadius="10dp"/>
-
-</shape>
+    <item android:drawable="@color/fondo"/>
+    <item android:gravity="bottom">
+        <shape android:shape="rectangle">
+            <size android:height="1dp"/>
+            <solid android:color="@color/morado_oscuro"/>
+        </shape>
+    </item>
+</layer-list>

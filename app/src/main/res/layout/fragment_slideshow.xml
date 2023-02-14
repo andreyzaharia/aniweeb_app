@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,10 +8,15 @@
     android:orientation="vertical"
     tools:context=".ui.slideshow.SlideshowFragment">
 
+
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/banner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,31 +26,53 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:padding="5dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/bg_search_lay"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <EditText
                     android:id="@+id/ed_search"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:padding="10dp"
-                    android:background="@drawable/bg_search_lay"
+                    android:background="@color/fondo"
                     android:hint="@string/buscar"
                     android:inputType="text"
-                    android:textColor="@color/black"/>
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    android:textCursorDrawable="@null" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:paddingLeft="20dp"
-                android:paddingRight="20dp"
                 android:paddingTop="10dp"
-                android:orientation="horizontal">
+                android:paddingRight="20dp">
 
+                <LinearLayout
+                    android:id="@+id/lay_emision"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_no_selected"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txt_emision"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="En emision"
+                        android:textAlignment="center"
+                        android:textColor="@color/morado_oscuro"
+                        android:textSize="12sp" />
+                </LinearLayout>
                 <LinearLayout
                     android:id="@+id/lay_finalizado"
                     android:layout_width="match_parent"
@@ -62,76 +89,107 @@
                         android:padding="10dp"
                         android:text="Finalizados"
                         android:textAlignment="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/morado_oscuro"
                         android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/lay_emision"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/txt_emision"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="En emision"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="12sp" />
-                </LinearLayout>
+
+
                 <LinearLayout
                     android:id="@+id/lay_prox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:background="@drawable/bg_no_selected"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/txt_prox"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textAlignment="center"
-                        android:padding="10dp"
                         android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="12sp"
-                        android:text="Proximamente" />
+                        android:padding="10dp"
+                        android:text="Proximamente"
+                        android:textAlignment="center"
+                        android:textColor="@color/morado_oscuro"
+                        android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/grid_animes"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/grid_animes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp" />
+
+            <LinearLayout
+                android:id="@+id/bt_verMas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone"
+                android:layout_margin="20dp"
+                android:background="@drawable/bg_search_lay"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_verMas"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/morado_oscuro"
+                    android:text="@string/ver_mas" />
+            </LinearLayout>
 
         </LinearLayout>
-
-
     </androidx.core.widget.NestedScrollView>
+
     <LinearLayout
         android:id="@+id/banner"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="10"
+        android:layout_height="50dp"
+        android:background="@color/black"
         android:orientation="vertical"
-        android:background="@color/black">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textAlignment="center"
-            android:padding="10dp"
             android:gravity="center"
+            android:padding="10dp"
+            android:text="Proximamente"
+            android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="14sp"
-            android:text="Proximamente" />
+            android:textSize="14sp" />
     </LinearLayout>
-</androidx.appcompat.widget.LinearLayoutCompat>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Large.ThreeBounce"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:SpinKit_Color="@color/white" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
