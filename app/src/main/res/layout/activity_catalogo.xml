@@ -11,44 +11,284 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textAlignment="textStart"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/morado_oscuro"
+            android:text="@string/directorio_anime" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/bg_search_lay"
-            android:orientation="vertical"
-            android:padding="5dp">
+            android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/ed_search"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@color/fondo"
-                android:hint="@string/buscar"
-                android:inputType="text"
-                android:padding="5dp"
-                android:textColor="@color/black"
-                android:textCursorDrawable="@null" />
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/bg_search_lay"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <EditText
+                    android:id="@+id/ed_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/fondo"
+                    android:hint="@string/buscar"
+                    android:inputType="text"
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    android:textCursorDrawable="@null" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bt_Filters"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:background="@drawable/bg_search_lay"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:layout_weight="1"
+                    android:textColor="@color/morado_oscuro"
+                    android:text="@string/filtros" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:scaleType="fitCenter"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/filtrar" />
+
+            </LinearLayout>
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/lay_filtros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical">
 
-        <com.ns.developer.tagview.widget.TagCloudLinkView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/tagLink"
-            android:layout_width="500px"
-            android:layout_height="match_parent"
-            android:padding="4dp"
-            android:background="#ffffff"
-            app:tagLayoutColor="@color/morado_oscuro"
-            app:tagTextSize="8sp"
-            app:tagTextColor="@color/white" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textColor="@color/morado_oscuro"
+                        android:text="@string/g_nero" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_search_lay"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:padding="5dp"
+                        android:orientation="vertical">
+
+                        <Spinner
+                            android:id="@+id/sp_genre"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/morado_oscuro"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textColor="@color/morado_oscuro"
+                        android:text="@string/season" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_search_lay"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:padding="5dp"
+                        android:orientation="vertical">
+
+                        <Spinner
+                            android:id="@+id/sp_season"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/morado_oscuro"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textColor="@color/morado_oscuro"
+                        android:text="@string/estado" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_search_lay"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:padding="5dp"
+                        android:orientation="vertical">
+
+                        <Spinner
+                            android:id="@+id/sp_state"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/morado_oscuro"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/bt_filtrar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_lay_morado"
+                        android:padding="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="16sp"
+                            android:textColor="@color/white"
+                            android:text="@string/filtrar" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/bt_verMas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_search_lay"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_marginTop="5dp"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/txt_verMas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Siguiente Página"
+                android:textAlignment="center"
+                android:textColor="@color/morado_oscuro"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:id="@+id/progresBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Large.ThreeBounce"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="1"
+            android:visibility="visible"
+            app:SpinKit_Color="@color/morado_oscuro" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

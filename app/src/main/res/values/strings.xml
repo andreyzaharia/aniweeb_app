@@ -26,5 +26,11 @@
 
     <string name="client_id">e23ae05e01e71b0478325eb5281ac713</string>
     <string name="ver_mas">Ver Mas</string>
+    <string name="filtros">Filtros..</string>
+    <string name="directorio_anime">Directorio Anime</string>
+    <string name="g_nero">Género</string>
+    <string name="season">Temporada</string>
+    <string name="estado">Estado</string>
+    <string name="filtrar">Filtrar</string>
 
 </resources>

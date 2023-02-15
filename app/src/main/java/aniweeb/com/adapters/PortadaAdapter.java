@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import aniweeb.com.R;
 import aniweeb.com.models.Portada;
@@ -21,6 +22,9 @@ import aniweeb.com.models.Portada;
 public class PortadaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private final ArrayList<Portada> listPortadas;
     private final Context mContext;
+
+    private boolean isLoadingAdded = false;
+
 
     public PortadaAdapter(ArrayList<Portada> listPortadas, Context mContext) {
         this.listPortadas = listPortadas;

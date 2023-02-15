@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/drawable/bg_item_resena.xml" value="0.3425" />
+        <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/drawable/bg_lay_morado.xml" value="0.3425" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/drawable/bg_layout_purple.xml" value="0.3425" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/drawable/bg_no_selected.xml" value="0.3425" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/drawable/bg_search_lay.xml" value="0.3425" />
@@ -10,6 +12,7 @@
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/fragment_slideshow.xml" value="0.25" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/item_grid_estrenos.xml" value="0.3555253623188406" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/remove_border.xml" value="0.3555253623188406" />
+        <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/spinner_item_custom.xml" value="0.3555253623188406" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/drawable/bg_item_resena.xml" value="0.333" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/drawable/bg_layout_purple.xml" value="0.333" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/drawable/bg_no_selected.xml" value="0.333" />
