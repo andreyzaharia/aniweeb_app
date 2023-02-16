@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -21,6 +22,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.android.volley.VolleyError;
+import com.androidbuts.multispinnerfilter.KeyPairBoolData;
+import com.androidbuts.multispinnerfilter.MultiSpinnerListener;
+import com.androidbuts.multispinnerfilter.MultiSpinnerSearch;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,6 +33,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 import aniweeb.com.R;
 import aniweeb.com.URLs.URLs;
@@ -50,7 +55,11 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
     private RecyclerView recyclerView;
 
     private EditText ed_search;
-    private Spinner sp_genre, sp_state, sp_season;
+    private Spinner  sp_state, sp_season;
+   // private Spinner  sp_genre;
+
+    private MultiSpinnerSearch sp_genre;
+    private StringBuilder cadena;
 
     private ArrayList<Genero> arrayGenre;
     private ArrayList<Season> arraySeason;
@@ -59,7 +68,7 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<Portada> listPortadas;
 
-    private String estado = "", temporada = "", genero = "";
+    private String estado = "", temporada = "", generos = "";
     private int genre_id, current_page = 1;
 
     @Override
@@ -88,6 +97,14 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
         progresBar = findViewById(R.id.progresBar);
 
         sp_genre = findViewById(R.id.sp_genre);
+// Pass true If you want searchView above the list. Otherwise false. default = true.
+        sp_genre.setSearchEnabled(true);
+// A text that will display in search hint.
+        sp_genre.setSearchHint("Selecciona genero");
+        // Set text that will display when search result not found...
+        sp_genre.setEmptyTitle("Sin resultados..");
+        //A text that will display in clear text button
+        sp_genre.setClearText("Vaciar y cerrar");
 
         sp_state = findViewById(R.id.sp_state);
 
@@ -145,7 +162,7 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
 
         Log.e("params", params.toString());
 
-        final RestAPIWebServices restAPIWebServices = new RestAPIWebServices(CatalogoActivity.this,URLs.getAnimeJikanList + "?genres=" + genre_id + "&page="+ current_page);
+        final RestAPIWebServices restAPIWebServices = new RestAPIWebServices(CatalogoActivity.this,URLs.getAnimeJikanList + "?genres=" + generos + "&page="+ current_page);
         restAPIWebServices.getResponseApi(new RestAPIWebServices.VolleyCallback() {
             @Override
             public void onSuccess(String result) {
@@ -304,9 +321,8 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void getFilters() {
-        Genero genre = (Genero) sp_genre.getSelectedItem();
-        genero = genre.getGenero();
-        genre_id = genre.getId();
+        /*Genero genre = (Genero) sp_genre.getSelectedItem();
+        genre_id = genre.getId();*/
 
         State state = (State) sp_state.getSelectedItem();
         estado = state.getEstado();
@@ -314,7 +330,9 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
         Season season = (Season) sp_season.getSelectedItem();
         temporada = season.getTemporada();
 
-        filtrar = !genero.isEmpty() || !estado.isEmpty() || !temporada.isEmpty();
+
+        generos = cadena.toString();
+        filtrar = !generos.isEmpty() || !estado.isEmpty() || !temporada.isEmpty();
         bt_filtrar.setEnabled(false);
 
         current_page = 1;
@@ -368,9 +386,44 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
 
                         arrayGenre.add(new Genero(id, name, name));
                     }
-
+/*
                     final ArrayAdapter<Genero> adapterSpinnerGenres = new ArrayAdapter<Genero>(CatalogoActivity.this,R.layout.spinner_item_custom,arrayGenre);
                     sp_genre.setAdapter(adapterSpinnerGenres);
+*/
+                    final List<KeyPairBoolData> listArray = new ArrayList<KeyPairBoolData>();
+
+                    for(int i=0; i<arrayGenre.size(); i++) {
+                        KeyPairBoolData h = new KeyPairBoolData();
+                        h.setId(arrayGenre.get(i).getId());
+                        h.setName(arrayGenre.get(i).getName());
+                        h.setSelected(false);
+                        listArray.add(h);
+                    }
+
+
+                    sp_genre.setItems(listArray, new MultiSpinnerListener() {
+                        @Override
+                        public void onItemsSelected(List<KeyPairBoolData> items) {
+                            ArrayList<String> list = new ArrayList<>();
+                            for (int i = 0; i < items.size(); i++) {
+                                if (items.get(i).isSelected()) {
+                                    //Log.e("sp", items.get(i).getId() + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
+                                    list.add(String.valueOf(items.get(i).getId()));
+
+                                    String SEPARADOR = "";
+                                    cadena= new StringBuilder();
+                                    for (String s : list) {
+                                        cadena.append(SEPARADOR);
+                                        cadena.append(s);
+                                        SEPARADOR = ",";
+                                    }
+                                    //Log.e("sp", String.valueOf(cadena));
+
+                                    //getAnime(current_page);
+                                }
+                            }
+                        }
+                    });
 
                 } catch (JSONException e) {
                     e.printStackTrace();

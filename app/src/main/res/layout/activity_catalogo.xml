@@ -43,13 +43,13 @@
                 <EditText
                     android:id="@+id/ed_search"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:backgroundTint="@color/fondo"
                     android:hint="@string/buscar"
                     android:inputType="text"
-                    android:textColorHint="@color/gris"
                     android:padding="5dp"
                     android:textColor="@color/black"
+                    android:textColorHint="@color/gris"
                     android:textCursorDrawable="@null" />
             </LinearLayout>
 
@@ -122,11 +122,22 @@
                         android:padding="5dp"
                         android:orientation="vertical">
 
+                        <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
+                            android:id="@+id/sp_genre"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/morado_oscuro"
+                            app:hintText="Selecciona un genero"
+                            app:textColor="@color/morado_oscuro"
+                            app:highlightColor="@color/morado_oscuro"
+
+                            />
+                        <!--
                         <Spinner
                             android:id="@+id/sp_genre"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:backgroundTint="@color/morado_oscuro"/>
+                            android:backgroundTint="@color/morado_oscuro"/>-->
                     </LinearLayout>
                 </LinearLayout>
 
