@@ -11,8 +11,17 @@
 
 
     <color name="morado">#6300FC</color>
+
     <color name="morado_oscuro">#2D033B</color>
+    <color name="morado_2">#810CA8</color>
+    <color name="morado_3">#C147E9</color>
     <color name="morado_palido">#E5B8F4</color>
+
+    <color name="negro">#000000</color>
+    <color name="morado_oscuro_paleta2">#3E065F</color>
+    <color name="morado_paleta2">#700B97</color>
+    <color name="morado2_paleta2">#8E05C2</color>
+
     <color name="gris_claro">#EBEDEF</color>
     <color name="gris">#909497</color>
 

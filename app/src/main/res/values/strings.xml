@@ -32,5 +32,7 @@
     <string name="season">Temporada</string>
     <string name="estado">Estado</string>
     <string name="filtrar">Filtrar</string>
+    <string name="no_resultados">No se encuentra ningún resultado.</string>
+    <string name="detalles">Detalles</string>
 
 </resources>

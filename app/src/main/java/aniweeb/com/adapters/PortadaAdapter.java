@@ -1,11 +1,13 @@
 package aniweeb.com.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,13 +19,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import aniweeb.com.R;
+import aniweeb.com.activities.DetailsActivity;
 import aniweeb.com.models.Portada;
 
-public class PortadaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class PortadaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final ArrayList<Portada> listPortadas;
     private final Context mContext;
-
-    private boolean isLoadingAdded = false;
 
 
     public PortadaAdapter(ArrayList<Portada> listPortadas, Context mContext) {
@@ -59,6 +60,15 @@ public class PortadaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             portadaHolder.TVPopularity.setVisibility(View.GONE);
 
         }
+
+        portadaHolder.item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(mContext, DetailsActivity.class);
+                i.putExtra("id", portada.getId());
+                mContext.startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -71,6 +81,7 @@ public class PortadaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         TextView TVTitle, TVcategories, TVMean, TVPopularity;
         ImageView im_anime;
         LinearLayout lay_puntuacion;
+        RelativeLayout item;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -81,7 +92,7 @@ public class PortadaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             TVMean = itemView.findViewById(R.id.txt_mean);
             TVPopularity = itemView.findViewById(R.id.txt_popularity);
             lay_puntuacion = itemView.findViewById(R.id.lay_puntuacion);
-
+            item = itemView.findViewById(R.id.relative);
         }
     }
 }

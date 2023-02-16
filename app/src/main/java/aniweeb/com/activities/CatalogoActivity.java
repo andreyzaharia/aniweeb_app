@@ -44,7 +44,7 @@ import aniweeb.com.restapi.RestAPIWebServices;
  */
 public class CatalogoActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private LinearLayout bt_Filters, lay_filtros, progresBar, bt_filtrar, bt_verMas;
+    private LinearLayout bt_Filters, lay_filtros, progresBar, bt_filtrar, bt_verMas, bt_verMenos;
     private boolean toggle = false;
     private boolean filtrar = false;
     private RecyclerView recyclerView;
@@ -79,6 +79,9 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
 
         bt_verMas = findViewById(R.id.bt_verMas);
         bt_verMas.setOnClickListener(this);
+
+        bt_verMenos = findViewById(R.id.bt_verMenos);
+        bt_verMenos.setOnClickListener(this);
 
         lay_filtros = findViewById(R.id.lay_filtros);
 
@@ -157,10 +160,18 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
                         bt_verMas.setVisibility(View.GONE);
                     } else {
                         bt_verMas.setVisibility(View.VISIBLE);
+                    }
+                    int current_page = pagination.getInt("current_page");
+                    if (current_page > 1) {
+                        bt_verMenos.setVisibility(View.VISIBLE);
+                    } else {
+                        bt_verMenos.setVisibility(View.GONE);
 
                     }
 
-
+                    double score = 0;
+                    int scored_by = 0;
+                    String season = "";
                     JSONArray data = jsonObject.getJSONArray("data");
                     for (int i = 0; i< data.length(); i++) {
                         JSONObject element = data.getJSONObject(i);
@@ -175,37 +186,20 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
 
                         String status = element.getString("status");
 
-                        double score = element.getDouble("score");
+                        if (!element.isNull("score")) {
+                            score = element.getDouble("score");
+                        }
 
-                        int scored_by = element.getInt("scored_by");
+                        if (!element.isNull("scored_by")) {
+                            scored_by = element.getInt("scored_by");
+                        }
 
                         if (!element.isNull("season")) {
-                            String season = element.getString("season");
-                            if (filtrar) {
-                                if (!estado.isEmpty() && estado.equalsIgnoreCase(status) && !temporada.isEmpty() && temporada.equalsIgnoreCase("season")) {
-                                    listPortadas.add(new Portada(id,scored_by, score, title, image, season, status));
-
-                                }
-
-                                if (!estado.isEmpty() && estado.equalsIgnoreCase(status) && temporada.isEmpty()) {
-                                    listPortadas.add(new Portada(id,scored_by, score, title, image, season, status));
-
-                                }
-
-                                if (!temporada.isEmpty() && temporada.equalsIgnoreCase(season) && estado.isEmpty()) {
-                                    listPortadas.add(new Portada(id,scored_by, score, title, image, season, status));
-
-                                }
-
-                                if (temporada.isEmpty() && estado.isEmpty()) {
-                                    listPortadas.add(new Portada(id,scored_by, score, title, image, season, status));
-
-                                }
-
-                            } else {
-                                listPortadas.add(new Portada(id,scored_by, score, title, image, season, status));
-                            }
+                            season = element.getString("season");
                         }
+
+                        listPortadas.add(new Portada(id,scored_by, score, title, image, season, status));
+
                     }
 
                         PortadaAdapter portadaAdapter = new PortadaAdapter(listPortadas, CatalogoActivity.this);
@@ -215,7 +209,10 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
                         recyclerView.setLayoutManager(layoutManager);
                         recyclerView.setAdapter(portadaAdapter);
 
+                    if (listPortadas.size() == 0) {
+                        Toast.makeText(CatalogoActivity.this, R.string.no_resultados, Toast.LENGTH_SHORT).show();
 
+                    }
 
                     progresBar.setVisibility(View.GONE);
                     bt_filtrar.setEnabled(true);
@@ -341,6 +338,12 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
             case R.id.bt_verMas:
                 //recoger filtros
                 current_page += 1;
+                getAnime(current_page);
+                break;
+
+            case R.id.bt_verMenos:
+                //recoger filtros
+                current_page -= 1;
                 getAnime(current_page);
                 break;
         }
