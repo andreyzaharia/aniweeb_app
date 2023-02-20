@@ -162,7 +162,7 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
 
         Log.e("params", params.toString());
 
-        final RestAPIWebServices restAPIWebServices = new RestAPIWebServices(CatalogoActivity.this,URLs.getAnimeJikanList + "?genres=" + generos + "&page="+ current_page);
+        final RestAPIWebServices restAPIWebServices = new RestAPIWebServices(CatalogoActivity.this,URLs.getAnimeJikanList + "?genres=" + generos + "&page="+ current_page + "&order_by=score&sort=desc");
         restAPIWebServices.getResponseApi(new RestAPIWebServices.VolleyCallback() {
             @Override
             public void onSuccess(String result) {
