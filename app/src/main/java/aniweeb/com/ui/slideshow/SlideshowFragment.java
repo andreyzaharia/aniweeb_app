@@ -116,9 +116,9 @@ public class SlideshowFragment extends Fragment implements View.OnClickListener{
 
         HashMap<String, String> params = new HashMap<>();
         params.put("ranking_type", ranking_type);
-        params.put("limit", String.valueOf(20));
+        params.put("limit", String.valueOf(40));
 
-        RestAPIWebServices restAPIWebServices = new RestAPIWebServices(getContext(), params, URLs.getRankingAnimeList + "?ranking_type=" + ranking_type + "&limit=20&offset=0&fields=mean,num_scoring_users");
+        RestAPIWebServices restAPIWebServices = new RestAPIWebServices(getContext(), params, URLs.getRankingAnimeList + "?ranking_type=" + ranking_type + "&limit=40&offset=0&fields=mean,num_scoring_users");
         restAPIWebServices.getResponseWithDataApi(new RestAPIWebServices.VolleyCallback() {
             @Override
             public void onSuccess(String result) {

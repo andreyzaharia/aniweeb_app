@@ -69,7 +69,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="En emision"
+                        android:text="@string/en_emision"
                         android:textAlignment="center"
                         android:textColor="@color/morado_oscuro"
                         android:textSize="12sp" />
@@ -88,7 +88,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Finalizados"
+                        android:text="@string/finalizados"
                         android:textAlignment="center"
                         android:textColor="@color/morado_oscuro"
                         android:textSize="14sp"
@@ -111,7 +111,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Proximamente"
+                        android:text="@string/proximamente"
                         android:textAlignment="center"
                         android:textColor="@color/morado_oscuro"
                         android:textSize="12sp" />
@@ -152,7 +152,7 @@
     <LinearLayout
         android:id="@+id/banner"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:background="@color/black"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -191,6 +191,6 @@
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_weight="1"
             android:visibility="gone"
-            app:SpinKit_Color="@color/white" />
+            app:SpinKit_Color="@color/morado_oscuro" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -100,11 +100,11 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
 // Pass true If you want searchView above the list. Otherwise false. default = true.
         sp_genre.setSearchEnabled(true);
 // A text that will display in search hint.
-        sp_genre.setSearchHint("Selecciona genero");
+        sp_genre.setSearchHint("Select genres");
         // Set text that will display when search result not found...
-        sp_genre.setEmptyTitle("Sin resultados..");
+        sp_genre.setEmptyTitle("No results..");
         //A text that will display in clear text button
-        sp_genre.setClearText("Vaciar y cerrar");
+        sp_genre.setClearText("Clear & Close");
 
         sp_state = findViewById(R.id.sp_state);
 
@@ -376,7 +376,7 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
                 try {
                     jsonObject = new JSONObject(result);
                     arrayGenre = new ArrayList<>();
-                    arrayGenre.add(new Genero(1,"Selecciona Genero", ""));
+                    arrayGenre.add(new Genero(1,"Select Genres", ""));
 
                     JSONArray data = jsonObject.getJSONArray("data");
                     for (int i =0; i < data.length(); i++) {
@@ -449,19 +449,19 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
         arrayState = new ArrayList<>();
         arraySeason = new ArrayList<>();
 
-        arrayState.add(new State("Selecciona Estado", ""));
-        arrayState.add(new State("En emisión", "Currently Airing"));
-        arrayState.add(new State("Finalizado", "Finished Airing"));
+        arrayState.add(new State("Select State", ""));
+        arrayState.add(new State("Currently Airing", "Currently Airing"));
+        arrayState.add(new State("Finished Airing", "Finished Airing"));
         //arrayState.add(new State("Próximamente", "not_yet_aired"));
         final ArrayAdapter<State> adapterSpinnerStates = new ArrayAdapter<State>(CatalogoActivity.this,R.layout.spinner_item_custom,arrayState);
         sp_state.setAdapter(adapterSpinnerStates);
 
 
-        arraySeason.add(new Season("Selecciona Temporada", ""));
-        arraySeason.add(new Season("Invierno", "winter"));
-        arraySeason.add(new Season("Otoño", "fall"));
-        arraySeason.add(new Season("Verano", "summer"));
-        arraySeason.add(new Season("Primavera", "spring"));
+        arraySeason.add(new Season("Select Season", ""));
+        arraySeason.add(new Season("Winter", "winter"));
+        arraySeason.add(new Season("Fall", "fall"));
+        arraySeason.add(new Season("Summer", "summer"));
+        arraySeason.add(new Season("Spring", "spring"));
         final ArrayAdapter<Season> adapterSpinnerSeason = new ArrayAdapter<Season>(CatalogoActivity.this,R.layout.spinner_item_custom,arraySeason);
         sp_season.setAdapter(adapterSpinnerSeason);
     }

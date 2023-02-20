@@ -19,6 +19,16 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+
+
+    <style name="roundedImage" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">5dp</item>
+        <item name="cornerSizeTopRight">5dp</item>
+        <item name="cornerSizeBottomLeft">5dp</item>
+        <item name="cornerSizeBottomRight">5dp</item>
+    </style>
+
     <style name="Theme.Aniweeb.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Aniweeb.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

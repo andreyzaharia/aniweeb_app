@@ -49,12 +49,25 @@
                 android:padding="10dp"
                 android:elevation="6dp"
                 android:background="@drawable/bg_no_selected"
+                android:clipToPadding="false"
+
                 android:orientation="horizontal">
+                <!--
                 <ImageView
                     android:id="@+id/im_anime"
                     android:layout_width="170dp"
                     android:layout_height="240dp"
-                    android:scaleType="fitXY" />
+                    android:scaleType="fitXY" />-->
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/im_anime"
+                        android:layout_width="170dp"
+                        android:layout_height="240dp"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:background="@color/fondo"
+                        android:elevation="12dp"
+                        app:shapeAppearanceOverlay="@style/roundedImage"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -232,7 +245,7 @@
                         android:id="@+id/txt_stats"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Estadisticas"
+                        android:text="@string/estadisticas"
                         android:layout_marginBottom="10dp"
                         android:textStyle="bold"
                         android:textSize="18sp"
@@ -296,11 +309,12 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/lay_members"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:background="@drawable/bg_stats"
-
+                            android:visibility="gone"
                             android:orientation="vertical">
 
                             <ImageView
@@ -320,9 +334,11 @@
                                 android:textColor="@color/morado_oscuro" />
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/lay_popularity"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:visibility="gone"
                             android:orientation="vertical">
 
                             <ImageView
@@ -360,7 +376,7 @@
                                 android:id="@+id/textView"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Fecha Inicio"
+                                android:text="@string/fecha_inicio"
                                 android:layout_weight="1"
                                 android:textStyle="bold"
                                 android:textSize="18sp"
@@ -387,7 +403,7 @@
                                 android:id="@+id/textView2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Fecha Final"
+                                android:text="@string/fecha_final"
                                 android:layout_weight="1"
                                 android:textStyle="bold"
                                 android:textSize="18sp"
@@ -420,7 +436,7 @@
                             android:id="@+id/txt_verMas"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="+ Añadir a la lista"
+                            android:text="@string/a_adir_a_la_lista"
                             android:textAlignment="center"
                             android:textColor="@color/morado_oscuro"
                             android:textSize="16sp"

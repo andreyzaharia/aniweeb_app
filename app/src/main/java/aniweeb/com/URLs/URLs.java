@@ -13,7 +13,8 @@ public class URLs {
 
     public static String getGenres = API_JIKAN + "genres/anime";
     public static String getAnimeJikanList = API_JIKAN + "anime";
-
+    public static String getEpisodes = API_JIKAN + "schedules";
+    public static String getRandomAnime = API_JIKAN + "random/anime";
 
 
 }

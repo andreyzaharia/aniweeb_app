@@ -5,7 +5,8 @@
         android:startColor="@color/transparente_oscuro"
         android:endColor="@color/transparente_oscuro"
         />
-    <corners android:topRightRadius="10dp"/>
+    <corners android:topRightRadius="10dp"
+        android:bottomLeftRadius="5dp"/>
 <solid android:color="@color/transparente_oscuro">
 </solid>
 </shape>

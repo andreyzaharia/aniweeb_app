@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.imageview.ShapeableImageView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -51,8 +52,8 @@ public class PortadaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         if (portada.getPuntuacion() > 0) {
             portadaHolder.lay_puntuacion.setVisibility(View.VISIBLE);
-            portadaHolder.TVMean.setText(String.valueOf(portada.getPuntuacion()));
-            portadaHolder.TVPopularity.setText(String.valueOf(portada.getViewers()));
+            portadaHolder.TVMean.setText(" " + String.valueOf(portada.getPuntuacion()));
+            portadaHolder.TVPopularity.setText(" " + String.valueOf(portada.getViewers()));
 
         } else {
             portadaHolder.lay_puntuacion.setVisibility(View.GONE);
@@ -79,7 +80,7 @@ public class PortadaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView TVTitle, TVcategories, TVMean, TVPopularity;
-        ImageView im_anime;
+        ShapeableImageView im_anime;
         LinearLayout lay_puntuacion;
         RelativeLayout item;
 

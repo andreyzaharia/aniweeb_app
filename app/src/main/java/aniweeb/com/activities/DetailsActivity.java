@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.VolleyError;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -39,11 +40,12 @@ import aniweeb.com.restapi.RestAPIWebServices;
  * Created by Cristian Mármol cristian.marmol@occamcomunicacion.com on 16/02/2023.
  */
 public class DetailsActivity extends AppCompatActivity implements View.OnClickListener {
-    private ImageView imbt_back, im_anime;
+    private ImageView imbt_back;
+    private ShapeableImageView im_anime;
     private ImageButton im_mas;
     private TextView txt_title, TXT_Type, txt_episodes, txt_status, txt_score, TVDescription,txt_ranking, txt_people_scored, txt_people_add_list, txtpopularity,
             txt_start_date, txt_end_date;
-    private LinearLayout bt_add_list, lay_status, lay_episodes, lay_scores, lay_type, lay_final, lay_inicio, progresBar, lay_ranking, lay_scored;
+    private LinearLayout bt_add_list, lay_status, lay_episodes, lay_scores, lay_type, lay_final, lay_inicio, progresBar, lay_ranking, lay_scored, lay_members, lay_popularity;
     private RecyclerView recyclerGeneros;
     private RecyclerView.LayoutManager layoutManagerGeneros;
     private ArrayList<Genero> listGeneros;
@@ -86,6 +88,8 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         lay_final = findViewById(R.id.lay_final);
         lay_ranking = findViewById(R.id.lay_ranking);
         lay_scored = findViewById(R.id.lay_scored);
+        lay_members = findViewById(R.id.lay_members);
+        lay_popularity = findViewById(R.id.lay_popularity);
 
 
         progresBar = findViewById(R.id.progresBar);
@@ -145,7 +149,7 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
                     if (!data.isNull("episodes")) {
                         lay_episodes.setVisibility(View.VISIBLE);
                         int episodes = data.getInt("episodes");
-                        txt_episodes.setText(String.valueOf(episodes) + " capitulos");
+                        txt_episodes.setText(String.valueOf(episodes) + " episodes");
                     }
 
                     if (!data.isNull("score")) {
@@ -154,26 +158,28 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
                         txt_score.setText(String.valueOf(score));
                     }
 
-                    if (!data.isNull("rank")) {
+                    if (!data.isNull("rank") && data.getInt("rank") != 0) {
                         lay_ranking.setVisibility(View.VISIBLE);
                         int rank = data.getInt("rank");
-                        txt_ranking.setText(String.valueOf(rank));
+                        txt_ranking.setText("#" + String.valueOf(rank));
                     }
 
-                    if (!data.isNull("scored_by")) {
+                    if (!data.isNull("scored_by") && data.getInt("scored_by") != 0) {
                         lay_scored.setVisibility(View.VISIBLE);
                         int scored_by = data.getInt("scored_by");
                         txt_people_scored.setText(String.valueOf(scored_by));
                     }
 
-                    if (!data.isNull("members")) {
+                    if (!data.isNull("members") && data.getInt("members") != 0) {
+                        lay_members.setVisibility(View.VISIBLE);
                         int members = data.getInt("members");
                         txt_people_add_list.setText(String.valueOf(members));
                     }
 
-                    if (!data.isNull("popularity")) {
+                    if (!data.isNull("popularity") && data.getInt("popularity") != 0) {
+                        lay_popularity.setVisibility(View.VISIBLE);
                         int popularity = data.getInt("popularity");
-                        txtpopularity.setText(String.valueOf(popularity));
+                        txtpopularity.setText("#" + String.valueOf(popularity));
                     }
 
                     if (!data.isNull("synopsis")) {

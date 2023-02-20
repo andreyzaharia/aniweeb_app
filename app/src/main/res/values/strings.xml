@@ -11,26 +11,39 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="list_subtitle">Tu lista de anime personalizada</string>
-    <string name="mi_lista">Mi lista</string>
-    <string name="noticias">Noticias</string>
-    <string name="estrenos">Estrenos</string>
-    <string name="buscar">Buscar..</string>
+    <string name="mi_lista">News</string>
+    <string name="noticias">Episodes</string>
+    <string name="estrenos">Anime Premieres</string>
+    <string name="buscar">Search..</string>
 
     <string name="expira_sesion">Sesión expirada</string>
-    <string name="general_error">Parece que ha habido un error. Inténtalo más tarde</string>
+    <string name="general_error">It seems there was an error. Try again later</string>
 
 
     <string name="client_id">e23ae05e01e71b0478325eb5281ac713</string>
 
 
-    <string name="ver_mas">Ver Mas</string>
-    <string name="filtros">Filtros..</string>
-    <string name="directorio_anime">Directorio Anime</string>
-    <string name="g_nero">Género</string>
-    <string name="season">Temporada</string>
-    <string name="estado">Estado</string>
-    <string name="filtrar">Filtrar</string>
-    <string name="no_resultados">No se encuentra ningún resultado.</string>
-    <string name="detalles">Detalles</string>
+    <string name="ver_mas">See More</string>
+    <string name="filtros">Filters..</string>
+    <string name="directorio_anime">Anime Directory</string>
+    <string name="g_nero">Genre</string>
+    <string name="season">Seasons</string>
+    <string name="estado">State</string>
+    <string name="filtrar">Filter</string>
+    <string name="no_resultados">No results found.</string>
+    <string name="detalles">Details</string>
+    <string name="estadisticas">Stats</string>
+    <string name="fecha_inicio">Start Date</string>
+    <string name="fecha_final">End Date</string>
+    <string name="a_adir_a_la_lista">+ Add to the list</string>
+    <string name="en_emision">Broadcasting</string>
+    <string name="finalizados">Finished</string>
+    <string name="proximamente">Premiere Soon</string>
+    <string name="siguiente_p_gina">Next Page</string>
+    <string name="anterior_p_gina">Previous Page</string>
+    <string name="episodes">Episodes</string>
+    <string name="random_anime">Random Anime</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
