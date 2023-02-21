@@ -18,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.squareup.picasso.Picasso;
 
@@ -41,6 +43,7 @@ public class RandomFragment extends Fragment  implements View.OnClickListener {
     private Context mContext;
     private ShapeableImageView im_anime;
     private TextView TXT_Type, txt_episodes, txt_duration, txt_score, txt_title;
+    private AdView mAdView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,10 @@ public class RandomFragment extends Fragment  implements View.OnClickListener {
     }
 
     private void loadElements(View root) {
+        mAdView = root.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         bt_randomAnime = root.findViewById(R.id.bt_getRandom);
         bt_randomAnime.setOnClickListener(this);
 

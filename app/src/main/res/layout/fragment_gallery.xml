@@ -121,24 +121,24 @@
     <LinearLayout
         android:id="@+id/banner"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/black"
+        android:layout_height="wrap_content"
+        android:background="@color/fondo"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lay_paginacion">
 
-        <TextView
-            android:id="@+id/textView8"
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="Proximamente"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="@string/adUnitId_pruebas">
+        </com.google.android.gms.ads.AdView>
     </LinearLayout>
 
     <LinearLayout

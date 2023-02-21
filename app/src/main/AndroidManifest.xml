@@ -18,9 +18,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/icono_app"
         android:supportsRtl="true"
+        android:hardwareAccelerated="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Aniweeb"
         tools:targetApi="31">
+        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2370610163894783~2108849470"/>
+
         <activity
             android:name=".activities.CatalogoActivity"
             android:exported="false"

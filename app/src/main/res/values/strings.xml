@@ -10,8 +10,8 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-    <string name="list_subtitle">Tu lista de anime personalizada</string>
-    <string name="mi_lista">Last News</string>
+    <string name="list_subtitle">Don\'t miss any anime news</string>
+    <string name="mi_lista">New Trailers</string>
     <string name="noticias">Episodes</string>
     <string name="estrenos">Anime Premieres</string>
     <string name="buscar">Search..</string>
@@ -20,7 +20,12 @@
     <string name="general_error">It seems there was an error. Try again later</string>
 
 
+    <!-- IDS APIS -->
     <string name="client_id">e23ae05e01e71b0478325eb5281ac713</string>
+    <string name="adUnitId_pruebas">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="adUnitId_real">ca-app-pub-2370610163894783/1857552124</string>
+
+    <string name="ad_mob_manifest">ca-app-pub-2370610163894783~2108849470</string>
 
 
     <string name="ver_mas">See More</string>
@@ -47,5 +52,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="last_news">Last News</string>
     <string name="new_trailers">New Trailers</string>
+    <string name="aniweeb">ANIWEEB</string>
 
 </resources>

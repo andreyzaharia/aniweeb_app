@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_details"
+    android:background="@color/morado_oscuro"
     android:gravity="bottom"
     android:orientation="vertical"
     android:elevation="16dp"
@@ -15,34 +15,42 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <LinearLayout
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_header"
         android:padding="10dp"
+        android:visibility="visible"
         android:layout_gravity="center"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="20dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
+            android:text="@string/aniweeb"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="21sp"
+            android:fontFamily="@font/cormorant_garamond_medium"
+            android:textSize="30sp"
             android:textStyle="bold"
             />
     </LinearLayout>
 
 
+    <TextView
+        android:id="@+id/txtFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="textStart"
+        android:textColor="@color/fondo"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/list_subtitle"
-        android:textColor="#C0C0C0"
-        android:textAlignment="center"
-        android:textSize="14sp"/>
+        android:textColor="@color/gray"
+        android:textAlignment="textStart"
+        android:textSize="12sp"/>
 </LinearLayout>

@@ -3,7 +3,11 @@ package aniweeb.com;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -13,6 +17,12 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.format.TextStyle;
+import java.util.Locale;
 
 import aniweeb.com.databinding.ActivityMainBinding;
 
@@ -32,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
+        View headerView = navigationView.getHeaderView(0);
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -43,11 +55,41 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
 
-
         /* Inside the activity */
 // Remove default title text
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        TextView txtFecha = headerView.findViewById(R.id.txtFecha);
+        // Obtienes la fecha actual
+        Month mes = null;
+        DayOfWeek dia = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            int year = LocalDate.now().getYear();
+            mes = LocalDate.now().getMonth();
+            dia = LocalDate.now().getDayOfWeek();
+            // Obtienes el nombre del mes
+            String month = mes.getDisplayName(TextStyle.FULL, new Locale("es", "ES"));
+            String day = dia.getDisplayName(TextStyle.FULL, new Locale("es", "ES"));
+            txtFecha.setText(ucFirst(dia.toString())+ ", " + LocalDate.now().getDayOfMonth() + ucFirst(mes.toString()) + " of " + year);
+        }
+
 // Get access to the custom title view
+    }
+
+    public static String ucFirst(String str) { //devuelve la primera letra en mayuscula
+        if (str == null || str.isEmpty()) {
+            return "";
+        } else {
+            return  Character.toUpperCase(str.charAt(0)) + str.substring(1, str.length()).toLowerCase();
+        }
     }
 
     @Override
