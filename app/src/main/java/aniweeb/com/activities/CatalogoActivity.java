@@ -383,7 +383,7 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
                 try {
                     jsonObject = new JSONObject(result);
                     arrayGenre = new ArrayList<>();
-                    arrayGenre.add(new Genero(1,"Select Genres", ""));
+                    //arrayGenre.add(new Genero(1,"Select Genres", ""));
 
                     JSONArray data = jsonObject.getJSONArray("data");
                     for (int i =0; i < data.length(); i++) {
@@ -399,14 +399,13 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
 */
                     final List<KeyPairBoolData> listArray = new ArrayList<KeyPairBoolData>();
 
-                    for(int i=0; i<arrayGenre.size(); i++) {
+                    for(int i=0; i < arrayGenre.size(); i++) {
                         KeyPairBoolData h = new KeyPairBoolData();
                         h.setId(arrayGenre.get(i).getId());
                         h.setName(arrayGenre.get(i).getName());
                         h.setSelected(false);
                         listArray.add(h);
                     }
-
 
                     sp_genre.setItems(listArray, new MultiSpinnerListener() {
                         @Override

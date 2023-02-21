@@ -90,7 +90,7 @@
             android:id="@+id/lay_filtros"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:visibility="visible"
             android:orientation="vertical">
 
             <LinearLayout
@@ -129,9 +129,6 @@
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/morado_oscuro"
                             app:hintText="Select Genres"
-                            app:textColor="@color/morado_oscuro"
-                            app:highlightColor="@color/morado_oscuro"
-
                             />
                         <!--
                         <Spinner

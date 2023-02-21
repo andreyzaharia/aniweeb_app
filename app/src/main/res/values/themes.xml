@@ -17,9 +17,23 @@
     <style name="Theme.Aniweeb.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+
+        <item name="android:spinnerDropDownItemStyle">@style/mySpinnerItemStyle</item>
+
     </style>
 
+    <style name="mySpinnerItemStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+        <item name="android:textColor">@color/morado_oscuro</item>
+        <item name="iconTint">@color/morado_oscuro</item>
+        <item name="simpleItemSelectedColor">@color/morado_oscuro</item>
+        <item name="android:checkboxStyle">@color/morado_oscuro</item>
+        <item name="checkedIconTint">@color/morado_oscuro</item>
+        <item name="checkedTextViewStyle">@color/morado_oscuro</item>
+        <item name="color">@color/morado_oscuro</item>
+        <item name="android:color">@color/morado_oscuro</item>
 
+
+    </style>
 
     <style name="roundedImage" parent="">
         <item name="cornerFamily">rounded</item>

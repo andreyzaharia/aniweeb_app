@@ -5,7 +5,6 @@
       <map>
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/drawable/bg_details.xml" value="0.3425" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/drawable/bg_episode.xml" value="0.3425" />
-        <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/drawable/bg_header.xml" value="0.3425" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/drawable/bg_item_resena.xml" value="0.3425" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/drawable/bg_lay_boton.xml" value="0.3425" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/drawable/bg_lay_morado.xml" value="0.3425" />
@@ -13,38 +12,30 @@
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/drawable/bg_no_selected.xml" value="0.3425" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/drawable/bg_search_lay.xml" value="0.3425" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/drawable/bg_stats.xml" value="0.3425" />
-        <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/drawable/txt_outlined.xml" value="0.3425" />
-        <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/font/garamond.xml" value="0.3953125" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/activity_catalogo.xml" value="0.3555253623188406" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/activity_details.xml" value="0.3555253623188406" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/activity_main.xml" value="0.3555253623188406" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/app_bar_main.xml" value="0.3555253623188406" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/content_main.xml" value="0.3555253623188406" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/fragment_gallery.xml" value="0.25" />
-        <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/fragment_home.xml" value="0.3555253623188406" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/fragment_random.xml" value="0.3555253623188406" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/fragment_slideshow.xml" value="0.25" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/item_episodes.xml" value="0.3555253623188406" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/item_genre.xml" value="0.3555253623188406" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/item_grid_estrenos.xml" value="0.3555253623188406" />
-        <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/item_trailer.xml" value="0.3555253623188406" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/nav_header_main.xml" value="0.3555253623188406" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/remove_border.xml" value="0.3555253623188406" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/spinner_item_custom.xml" value="0.3555253623188406" />
-        <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/layout/splash_activity.xml" value="0.25" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/menu/activity_main_drawer.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/menu/main.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3425" />
-        <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/mipmap-anydpi-v26/icon_aniweb.xml" value="0.3425" />
-        <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/mipmap-anydpi-v26/icon_aniweb_round.xml" value="0.3425" />
-        <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/mipmap-anydpi-v26/icono_app.xml" value="0.3425" />
-        <entry key="..\:/Users/EQUIPO1/aniweeb/app/src/main/res/mipmap-anydpi-v26/icono_app_round.xml" value="0.3425" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/drawable/bg_item_resena.xml" value="0.333" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/drawable/bg_layout_purple.xml" value="0.333" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/drawable/bg_no_selected.xml" value="0.333" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/drawable/bg_search_lay.xml" value="0.333" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/drawable/icon_aniweb_background.xml" value="0.2985" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/drawable/side_nav_bar.xml" value="0.2985" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/layout/activity_catalogo.xml" value="0.3625" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/layout/app_bar_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/layout/content_main.xml" value="0.358695652173913" />
@@ -53,6 +44,7 @@
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/layout/fragment_slideshow.xml" value="0.3625" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/layout/item_grid_estrenos.xml" value="0.3625" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/layout/nav_header_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/layout/spinner_item_custom.xml" value="0.3625" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/menu/activity_main_drawer.xml" value="0.3625" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/menu/main.xml" value="0.3625" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Aniweeb/app/src/main/res/menu/menu_toolbar.xml" value="0.3614583333333333" />
