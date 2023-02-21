@@ -16,6 +16,6 @@ public class URLs {
     public static String getEpisodes = API_JIKAN + "schedules";
     public static String getRandomAnime = API_JIKAN + "random/anime";
     public static String getNewsPromos = API_JIKAN + "watch/promos";
-
+    public static String getNews = API_JIKAN + "anime/";
 
 }
