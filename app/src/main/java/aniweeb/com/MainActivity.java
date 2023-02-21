@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             // Obtienes el nombre del mes
             String month = mes.getDisplayName(TextStyle.FULL, new Locale("es", "ES"));
             String day = dia.getDisplayName(TextStyle.FULL, new Locale("es", "ES"));
-            txtFecha.setText(ucFirst(dia.toString())+ ", " + LocalDate.now().getDayOfMonth() + ucFirst(mes.toString()) + " of " + year);
+            txtFecha.setText(ucFirst(dia.toString())+ ", " + LocalDate.now().getDayOfMonth() + " " + ucFirst(mes.toString()) + " of " + year);
         }
 
 // Get access to the custom title view
