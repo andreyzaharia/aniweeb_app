@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/your_daily_dose_of_anime"
-            android:textColor="@color/gray"
+            android:textColor="@color/gris"
             android:textAlignment="center"
             android:textSize="14sp"/>
 

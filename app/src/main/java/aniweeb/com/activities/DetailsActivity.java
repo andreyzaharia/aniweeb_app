@@ -355,6 +355,8 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
                 } else {
                     Log.d("TAG", "The interstitial ad wasn't ready yet.");
                     //changeView(2);
+                    Toast.makeText(DetailsActivity.this, "Ad loading, try again later.", Toast.LENGTH_SHORT).show();
+
                 }
 
                 break;
