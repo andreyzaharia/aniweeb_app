@@ -22,8 +22,13 @@
 
     <!-- IDS APIS -->
     <string name="client_id">e23ae05e01e71b0478325eb5281ac713</string>
+
     <string name="adUnitId_pruebas">ca-app-pub-3940256099942544/6300978111</string>
     <string name="adUnitId_real">ca-app-pub-2370610163894783/1857552124</string>
+
+    <string name="adUnitInterstecial_pruebas">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="adUnitInterstecial_real">ca-app-pub-2370610163894783/7553689798</string>
+
 
     <string name="ad_mob_manifest">ca-app-pub-2370610163894783~2108849470</string>
 
@@ -54,5 +59,6 @@
     <string name="new_trailers">New Trailers</string>
     <string name="aniweeb">ANIWEEB</string>
     <string name="your_daily_dose_of_anime">Your daily dose of anime</string>
+    <string name="see_trailer">See Trailer</string>
 
 </resources>

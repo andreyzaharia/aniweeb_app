@@ -206,245 +206,339 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="10dp"
                 android:orientation="vertical">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerGeneros"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:nestedScrollingEnabled="false" />
-
-                <TextView
-                    android:id="@+id/TVDescription"
+                <LinearLayout
+                    android:id="@+id/lay_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:maxLines="5"
-                    android:ellipsize="end"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/morado_oscuro" />
-
-                <ImageButton
-                    android:id="@+id/im_mas"
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:scaleType="fitCenter"
-                    android:layout_marginTop="5dp"
-                    android:visibility="gone"
                     android:background="@color/fondo"
-                    android:src="@drawable/icons8_doble_abajo_64"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="25dp"
-                    android:orientation="vertical">
+                    android:paddingTop="10dp"
+                    android:elevation="8dp"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/txt_stats"
+                        android:id="@+id/txt_Details"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/estadisticas"
-                        android:layout_marginBottom="10dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/detalles"
+                        android:padding="10dp"
+                        android:textAlignment="center"
+                        android:background="@drawable/bg_layout_purple"
+                        android:layout_weight="1"
                         android:textStyle="bold"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         android:textColor="@color/morado_oscuro" />
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/txt_Trailer"
+                        android:visibility="visible"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:background="@drawable/bg_no_selected"
+                        android:text="@string/see_trailer"
+                        android:textAlignment="center"
+                        android:layout_weight="1"
+                        android:textSize="14sp"
+                        android:textColor="@color/morado_oscuro" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lay_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:visibility="visible"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerGeneros"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:nestedScrollingEnabled="false" />
+
+                    <TextView
+                        android:id="@+id/TVDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:textSize="16sp"
+                        android:maxLines="5"
+                        android:ellipsize="end"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/morado_oscuro" />
 
-                        <LinearLayout
-                            android:id="@+id/lay_ranking"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:visibility="gone"
-                            android:background="@drawable/bg_stats"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:id="@+id/imageView"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_gravity="center"
-                                android:scaleType="centerInside"
-                                app:srcCompat="@drawable/icons8_analytics_120___" />
-
-                            <TextView
-                                android:id="@+id/txt_ranking"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textAlignment="center"
-                                android:textSize="18sp"
-                                android:textColor="@color/morado_oscuro" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/lay_scored"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:visibility="gone"
-                            android:background="@drawable/bg_stats"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:id="@+id/imageView8"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_gravity="center"
-                                android:scaleType="centerInside"
-                                app:srcCompat="@drawable/icons8_pulgares_arriba_y_abajo_50" />
-
-                            <TextView
-                                android:id="@+id/txt_people_scored"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textAlignment="center"
-                                android:textSize="18sp"
-                                android:textColor="@color/morado_oscuro" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/lay_members"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:background="@drawable/bg_stats"
-                            android:visibility="gone"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:id="@+id/imageView9"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_gravity="center"
-                                android:scaleType="centerInside"
-                                app:srcCompat="@drawable/icons8_administraci_n_de_explotaci_n_comercial_96___" />
-
-                            <TextView
-                                android:id="@+id/txt_people_add_list"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textAlignment="center"
-                                android:textSize="18sp"
-                                android:textColor="@color/morado_oscuro" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:id="@+id/lay_popularity"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:visibility="gone"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:id="@+id/imageView10"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_gravity="center"
-                                android:scaleType="centerInside"
-                                app:srcCompat="@drawable/icons8_estad_sticas_64" />
-
-                            <TextView
-                                android:id="@+id/txtpopularity"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textAlignment="center"
-                                android:textSize="18sp"
-                                android:textColor="@color/morado_oscuro" />
-                        </LinearLayout>
-                    </LinearLayout>
-
+                    <ImageButton
+                        android:id="@+id/im_mas"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:scaleType="fitCenter"
+                        android:layout_marginTop="5dp"
+                        android:visibility="gone"
+                        android:background="@color/fondo"
+                        android:src="@drawable/icons8_doble_abajo_64"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="25dp"
                         android:orientation="vertical">
 
+                        <TextView
+                            android:id="@+id/txt_stats"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/estadisticas"
+                            android:layout_marginBottom="10dp"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="@color/morado_oscuro" />
+
                         <LinearLayout
-                            android:id="@+id/lay_inicio"
-                            android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-                            <TextView
-                                android:id="@+id/textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/fecha_inicio"
-                                android:layout_weight="1"
-                                android:textStyle="bold"
-                                android:textSize="18sp"
-                                android:textColor="@color/morado_oscuro" />
 
-                            <TextView
-                                android:id="@+id/txt_start_date"
-                                android:layout_width="match_parent"
+                            <LinearLayout
+                                android:id="@+id/lay_ranking"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:textSize="18sp"
-                                android:textColor="@color/morado_oscuro" />
+                                android:visibility="gone"
+                                android:background="@drawable/bg_stats"
+                                android:orientation="vertical">
 
+                                <ImageView
+                                    android:id="@+id/imageView"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center"
+                                    android:scaleType="centerInside"
+                                    app:srcCompat="@drawable/icons8_analytics_120___" />
+
+                                <TextView
+                                    android:id="@+id/txt_ranking"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAlignment="center"
+                                    android:textSize="18sp"
+                                    android:textColor="@color/morado_oscuro" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/lay_scored"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:visibility="gone"
+                                android:background="@drawable/bg_stats"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/imageView8"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center"
+                                    android:scaleType="centerInside"
+                                    app:srcCompat="@drawable/icons8_pulgares_arriba_y_abajo_50" />
+
+                                <TextView
+                                    android:id="@+id/txt_people_scored"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAlignment="center"
+                                    android:textSize="18sp"
+                                    android:textColor="@color/morado_oscuro" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/lay_members"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_stats"
+                                android:visibility="gone"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/imageView9"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center"
+                                    android:scaleType="centerInside"
+                                    app:srcCompat="@drawable/icons8_administraci_n_de_explotaci_n_comercial_96___" />
+
+                                <TextView
+                                    android:id="@+id/txt_people_add_list"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAlignment="center"
+                                    android:textSize="18sp"
+                                    android:textColor="@color/morado_oscuro" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/lay_popularity"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:visibility="gone"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/imageView10"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center"
+                                    android:scaleType="centerInside"
+                                    app:srcCompat="@drawable/icons8_estad_sticas_64" />
+
+                                <TextView
+                                    android:id="@+id/txtpopularity"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAlignment="center"
+                                    android:textSize="18sp"
+                                    android:textColor="@color/morado_oscuro" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/lay_inicio"
+                                android:visibility="gone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:id="@+id/textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/fecha_inicio"
+                                    android:layout_weight="1"
+                                    android:textStyle="bold"
+                                    android:textSize="18sp"
+                                    android:textColor="@color/morado_oscuro" />
+
+                                <TextView
+                                    android:id="@+id/txt_start_date"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:textSize="18sp"
+                                    android:textColor="@color/morado_oscuro" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/lay_final"
+                                android:visibility="gone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:id="@+id/textView2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/fecha_final"
+                                    android:layout_weight="1"
+                                    android:textStyle="bold"
+                                    android:textSize="18sp"
+                                    android:textColor="@color/morado_oscuro" />
+
+                                <TextView
+                                    android:id="@+id/txt_end_date"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:textSize="18sp"
+                                    android:textColor="@color/morado_oscuro" />
+
+                            </LinearLayout>
                         </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/lay_final"
-                            android:visibility="gone"
+                            android:id="@+id/add_list"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:id="@+id/textView2"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/fecha_final"
-                                android:layout_weight="1"
-                                android:textStyle="bold"
-                                android:textSize="18sp"
-                                android:textColor="@color/morado_oscuro" />
+                            android:background="@drawable/bg_search_lay"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
+                            android:layout_gravity="bottom"
+                            android:padding="10dp"
+                            android:layout_marginTop="20dp"
+                            android:visibility="gone">
 
                             <TextView
-                                android:id="@+id/txt_end_date"
+                                android:id="@+id/txt_verMas"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:textSize="18sp"
-                                android:textColor="@color/morado_oscuro" />
-
+                                android:text="@string/a_adir_a_la_lista"
+                                android:textAlignment="center"
+                                android:textColor="@color/morado_oscuro"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
                         </LinearLayout>
+
                     </LinearLayout>
+                </LinearLayout>
+
+                <!-- lay trailer -->
+                <LinearLayout
+                    android:id="@+id/lay_trailer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <LinearLayout
-                        android:id="@+id/add_list"
+                        android:id="@+id/lay_item"
+                        android:layout_margin="10dp"
+                        android:elevation="6dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_search_lay"
                         android:orientation="vertical"
-                        android:layout_weight="1"
-                        android:layout_gravity="bottom"
-                        android:padding="10dp"
-                        android:layout_marginTop="20dp"
-                        android:visibility="gone">
+                        android:background="@drawable/bg_episode">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="250dp"
+                            android:orientation="horizontal">
+
+                            <WebView
+                                android:id="@+id/wb_trailer"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="10dp"
+                                android:layout_weight="1" />
+
+                        </LinearLayout>
 
                         <TextView
-                            android:id="@+id/txt_verMas"
+                            android:id="@+id/txt_trailer_title"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/a_adir_a_la_lista"
+                            android:padding="10dp"
                             android:textAlignment="center"
+                            android:textSize="18sp"
                             android:textColor="@color/morado_oscuro"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            />
                     </LinearLayout>
 
                 </LinearLayout>
+
+
             </LinearLayout>
+
 
         </ScrollView>
 

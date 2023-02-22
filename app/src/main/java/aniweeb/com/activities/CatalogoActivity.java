@@ -36,7 +36,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-
 import aniweeb.com.R;
 import aniweeb.com.URLs.URLs;
 import aniweeb.com.adapters.PortadaAdapter;
@@ -397,6 +396,7 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
                     final ArrayAdapter<Genero> adapterSpinnerGenres = new ArrayAdapter<Genero>(CatalogoActivity.this,R.layout.spinner_item_custom,arrayGenre);
                     sp_genre.setAdapter(adapterSpinnerGenres);
 */
+
                     final List<KeyPairBoolData> listArray = new ArrayList<KeyPairBoolData>();
 
                     for(int i=0; i < arrayGenre.size(); i++) {

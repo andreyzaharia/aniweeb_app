@@ -1,20 +1,30 @@
 package aniweeb.com.activities;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.VolleyError;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.squareup.picasso.Picasso;
 
@@ -44,18 +54,24 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
     private ShapeableImageView im_anime;
     private ImageButton im_mas;
     private TextView txt_title, TXT_Type, txt_episodes, txt_status, txt_score, TVDescription,txt_ranking, txt_people_scored, txt_people_add_list, txtpopularity,
-            txt_start_date, txt_end_date;
-    private LinearLayout bt_add_list, lay_status, lay_episodes, lay_scores, lay_type, lay_final, lay_inicio, progresBar, lay_ranking, lay_scored, lay_members, lay_popularity;
+            txt_start_date, txt_end_date, txt_Details, txt_Trailer, txt_trailer_title;
+    private LinearLayout bt_add_list, lay_status, lay_episodes, lay_scores, lay_type, lay_final,
+            lay_inicio, progresBar, lay_ranking, lay_scored, lay_members, lay_popularity, lay_info, lay_details,lay_trailer;
     private RecyclerView recyclerGeneros;
     private RecyclerView.LayoutManager layoutManagerGeneros;
     private ArrayList<Genero> listGeneros;
 
     private int id_anime;
+    private WebView web_trailer;
+
+    private InterstitialAd mInterstitialAd;
+    private AdRequest adRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        adRequest = new AdRequest.Builder().build();
 
         loadElements();
     }
@@ -90,6 +106,28 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         lay_scored = findViewById(R.id.lay_scored);
         lay_members = findViewById(R.id.lay_members);
         lay_popularity = findViewById(R.id.lay_popularity);
+        lay_info = findViewById(R.id.lay_info);
+        lay_details = findViewById(R.id.lay_details);
+        lay_trailer = findViewById(R.id.lay_trailer);
+
+        web_trailer = findViewById(R.id.wb_trailer);
+        WebChromeClient mWebChromeClient = new WebChromeClient();
+
+        web_trailer.setWebChromeClient(mWebChromeClient);
+        web_trailer.setWebViewClient(new WebViewClient(){
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                return false;
+            }
+        });
+        WebSettings webSettings = web_trailer.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setSupportZoom(true);
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setDisplayZoomControls(false);
+        webSettings.setUseWideViewPort(true);
+        webSettings.setMediaPlaybackRequiresUserGesture(true);
 
 
         progresBar = findViewById(R.id.progresBar);
@@ -106,9 +144,32 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         txtpopularity = findViewById(R.id.txtpopularity);
         txt_start_date = findViewById(R.id.txt_start_date);
         txt_end_date = findViewById(R.id.txt_end_date);
+        txt_trailer_title = findViewById(R.id.txt_trailer_title);
+
+        txt_Details = findViewById(R.id.txt_Details);
+        txt_Details.setOnClickListener(this);
+
+        txt_Trailer = findViewById(R.id.txt_Trailer);
+        txt_Trailer.setOnClickListener(this);
 
         recyclerGeneros = findViewById(R.id.recyclerGeneros);
         layoutManagerGeneros = new LinearLayoutManager(DetailsActivity.this, LinearLayoutManager.HORIZONTAL,false);
+
+        InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712", adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        mInterstitialAd = null;
+                    }
+                });
 
         getAnimeDetails();
     }
@@ -237,6 +298,16 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
                         recyclerGeneros.setAdapter(genreAdapter);
                     }
 
+                    JSONObject trailer = data.getJSONObject("trailer");
+                    if (!trailer.isNull("youtube_id")) {
+                        lay_info.setVisibility(View.VISIBLE);
+
+                        String embed_url = trailer.getString("embed_url");
+                        web_trailer.loadUrl(embed_url);
+                        txt_trailer_title.setText(title);
+                    }
+
+
                     progresBar.setVisibility(View.GONE);
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -271,6 +342,53 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
                     TVDescription.setMaxLines(100);
                 }
                 break;
+
+            case R.id.txt_Details:
+                changeView(1);
+                break;
+
+            case R.id.txt_Trailer:
+
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(DetailsActivity.this);
+                    changeView(2);
+                } else {
+                    Log.d("TAG", "The interstitial ad wasn't ready yet.");
+                    //changeView(2);
+                }
+
+                break;
+        }
+    }
+
+    private void changeView(int option) {
+        if (option == 1) { //vista detalles
+            lay_details.setVisibility(View.VISIBLE);
+            lay_trailer.setVisibility(View.GONE);
+
+            txt_Details.setTextSize(16);
+            txt_Details.setTypeface(null, Typeface.BOLD);
+            txt_Details.setBackground(this.getResources().getDrawable(R.drawable.bg_layout_purple));
+
+            txt_Trailer.setTextSize(14);
+            txt_Trailer.setTypeface(null, Typeface.NORMAL);
+            txt_Trailer.setBackground(this.getResources().getDrawable(R.drawable.bg_no_selected));
+            web_trailer.onPause();
+
+        }else if (option == 2) {
+
+            lay_details.setVisibility(View.GONE);
+            lay_trailer.setVisibility(View.VISIBLE);
+
+            txt_Trailer.setTextSize(16);
+            txt_Trailer.setTypeface(null, Typeface.BOLD);
+            txt_Trailer.setBackground(DetailsActivity.this.getResources().getDrawable(R.drawable.bg_layout_purple));
+
+            txt_Details.setTextSize(14);
+            txt_Details.setTypeface(null, Typeface.NORMAL);
+            txt_Details.setBackground(DetailsActivity.this.getResources().getDrawable(R.drawable.bg_no_selected));
+
+            web_trailer.onResume();
 
         }
     }
