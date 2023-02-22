@@ -155,7 +155,7 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         recyclerGeneros = findViewById(R.id.recyclerGeneros);
         layoutManagerGeneros = new LinearLayoutManager(DetailsActivity.this, LinearLayoutManager.HORIZONTAL,false);
 
-        InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712", adRequest,
+        InterstitialAd.load(this,getString(R.string.adUnitInterstecial_real), adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {

@@ -111,6 +111,7 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
         sp_genre.setEmptyTitle("No results..");
         //A text that will display in clear text button
         sp_genre.setClearText("Clear & Close");
+        sp_genre.setColorSeparation(true);
 
         sp_state = findViewById(R.id.sp_state);
 
