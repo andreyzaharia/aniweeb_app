@@ -129,7 +129,6 @@
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/morado_oscuro"
                             app:hintText="Select Genres"
-                            android:theme="@style/Widget.AppCompat.TextView.SpinnerItem"
                             app:textColor="@color/morado_oscuro"
                             />
                         <!--

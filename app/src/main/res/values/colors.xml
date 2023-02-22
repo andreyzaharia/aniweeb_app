@@ -30,14 +30,4 @@
     <color name="transparente_oscuro">#17202A</color>
     <color name="transparent">#80FFFFFF</color>
 
-
-    <color name="red">#000000</color>
-
-    <color name="gray">#000000</color>
-
-    <color name="list_even">#000000</color>
-    <color name="list_odd">#000000</color>
-    <color name="list_selected">#000000</color>
-
-    <color name="stroke_border">#000000</color>
 </resources>
