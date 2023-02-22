@@ -111,7 +111,6 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
         sp_genre.setEmptyTitle("No results..");
         //A text that will display in clear text button
         sp_genre.setClearText("Clear & Close");
-        sp_genre.setColorSeparation(true);
 
         sp_state = findViewById(R.id.sp_state);
 
@@ -393,8 +392,8 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
 
                         arrayGenre.add(new Genero(id, name, name));
                     }
-/*
-                    final ArrayAdapter<Genero> adapterSpinnerGenres = new ArrayAdapter<Genero>(CatalogoActivity.this,R.layout.spinner_item_custom,arrayGenre);
+
+                    /*ArrayAdapter<Genero> adapterSpinnerGenres = new ArrayAdapter<Genero>(CatalogoActivity.this,R.layout.spinner_item_custom,arrayGenre);
                     sp_genre.setAdapter(adapterSpinnerGenres);
 */
 
