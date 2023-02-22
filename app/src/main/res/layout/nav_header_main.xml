@@ -50,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/list_subtitle"
-        android:textColor="@color/gray"
+        android:textColor="@color/gris"
         android:textAlignment="textStart"
         android:textSize="12sp"/>
 </LinearLayout>
