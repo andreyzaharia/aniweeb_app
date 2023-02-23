@@ -219,7 +219,7 @@ public class RandomFragment extends Fragment  implements View.OnClickListener {
                 } else {
                     Log.d("TAG", "The interstitial ad wasn't ready yet.");
                     //changeView(2);
-                    Toast.makeText(mContext, "Ad loading, try again later.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "Ad loading, please wait.", Toast.LENGTH_SHORT).show();
 
                 }
 
