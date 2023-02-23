@@ -70,6 +70,8 @@ public class GalleryFragment extends Fragment implements View.OnClickListener {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             date = LocalDate.now().getDayOfWeek().name().toLowerCase();
+
+            Log.e("date", date);
         }
 
         loadElements(root);
@@ -101,6 +103,7 @@ public class GalleryFragment extends Fragment implements View.OnClickListener {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 Days day = arrayDay.get(i);
                 date = day.getDay_of_week();
+
                 getEpisodes(date, current_page);
             }
 
@@ -109,6 +112,19 @@ public class GalleryFragment extends Fragment implements View.OnClickListener {
 
             }
         });
+/*
+        for (Days day : arrayDay) {
+            if (day.getDay_of_week().equalsIgnoreCase(date)) {
+                sp_day.setSelection(day.getId() - 1);
+
+            }
+        }
+        */
+        for (int i = 0; i < arrayDay.size(); i++) {
+            if (arrayDay.get(i).getDay_of_week().equalsIgnoreCase(date)) {
+                sp_day.setSelection(arrayDay.get(i).getId() - 1);
+            }
+        }
 
 
         recyclerView = root.findViewById(R.id.recyclerView);
