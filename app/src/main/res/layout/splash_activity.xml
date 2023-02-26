@@ -16,16 +16,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/aniweeb"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:fontFamily="@font/cormorant_garamond_medium"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            />
+        <ImageView
+            android:id="@+id/img_logo"
+            android:layout_width="300dp"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/animeweeb__1_" />
+
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
