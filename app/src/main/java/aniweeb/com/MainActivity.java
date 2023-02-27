@@ -1,9 +1,13 @@
 package aniweeb.com;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
@@ -31,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
+    private TextView txt_contactus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,7 +86,24 @@ public class MainActivity extends AppCompatActivity {
             txtFecha.setText(ucFirst(dia.toString())+ ", " + LocalDate.now().getDayOfMonth() + " " + ucFirst(mes.toString()) + " of " + year);
         }
 
+        txt_contactus = findViewById(R.id.txt_contactus);
+        txt_contactus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                enviarEmail();
+            }
+        });
+
 // Get access to the custom title view
+    }
+
+    public void  enviarEmail(){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+       //intent.putExtra(Intent.EXTRA_SUBJECT, "Asunto de prieba");
+       // intent.putExtra(Intent.EXTRA_TEXT, "Probando el envio");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"aniweeb.contact@gmail.com"});
+        startActivity(intent);
     }
 
     public static String ucFirst(String str) { //devuelve la primera letra en mayuscula
