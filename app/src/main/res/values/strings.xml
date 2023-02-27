@@ -60,5 +60,8 @@
     <string name="aniweeb">ANIWEEB</string>
     <string name="your_daily_dose_of_anime">Your daily dose of anime</string>
     <string name="see_trailer">See Trailer</string>
+    <string name="producers">Producers</string>
+    <string name="mail">aniweeb.contact@gmail.com</string>
+    <string name="contact_us">CONTACT US!</string>
 
 </resources>

@@ -54,9 +54,9 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
     private ShapeableImageView im_anime;
     private ImageButton im_mas;
     private TextView txt_title, TXT_Type, txt_episodes, txt_status, txt_score, TVDescription,txt_ranking, txt_people_scored, txt_people_add_list, txtpopularity,
-            txt_start_date, txt_end_date, txt_Details, txt_Trailer, txt_trailer_title;
+            txt_start_date, txt_end_date, txt_Details, txt_Trailer, txt_trailer_title, txt_author;
     private LinearLayout bt_add_list, lay_status, lay_episodes, lay_scores, lay_type, lay_final,
-            lay_inicio, progresBar, lay_ranking, lay_scored, lay_members, lay_popularity, lay_info, lay_details,lay_trailer;
+            lay_inicio, progresBar, lay_ranking, lay_scored, lay_members, lay_popularity, lay_info, lay_details,lay_trailer, lay_author;
     private RecyclerView recyclerGeneros;
     private RecyclerView.LayoutManager layoutManagerGeneros;
     private ArrayList<Genero> listGeneros;
@@ -109,6 +109,7 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         lay_info = findViewById(R.id.lay_info);
         lay_details = findViewById(R.id.lay_details);
         lay_trailer = findViewById(R.id.lay_trailer);
+        lay_author = findViewById(R.id.lay_author);
 
         web_trailer = findViewById(R.id.wb_trailer);
         WebChromeClient mWebChromeClient = new WebChromeClient();
@@ -145,6 +146,7 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         txt_start_date = findViewById(R.id.txt_start_date);
         txt_end_date = findViewById(R.id.txt_end_date);
         txt_trailer_title = findViewById(R.id.txt_trailer_title);
+        txt_author = findViewById(R.id.txt_author);
 
         txt_Details = findViewById(R.id.txt_Details);
         txt_Details.setOnClickListener(this);
@@ -252,6 +254,19 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
                             im_mas.setVisibility(View.VISIBLE);
                         } else {
                             im_mas.setVisibility(View.GONE);
+                        }
+                    }
+
+                    if (!data.isNull("producers")) {
+                        JSONArray producers = data.getJSONArray("producers");
+                        String name = "";
+                        for (int i = 0; i< producers.length(); i++) {
+                            JSONObject element = producers.getJSONObject(i);
+                            name = element.getString("name");
+                        }
+                        if (!name.isEmpty()) {
+                            lay_author.setVisibility(View.VISIBLE);
+                            txt_author.setText(name);
                         }
                     }
 
