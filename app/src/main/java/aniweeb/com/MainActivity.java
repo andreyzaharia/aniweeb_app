@@ -1,6 +1,8 @@
 package aniweeb.com;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -63,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         /* Inside the activity */
 // Remove default title text
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
 
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
