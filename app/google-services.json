@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "944710780329",
+    "project_id": "aniweeb-cce77",
+    "storage_bucket": "aniweeb-cce77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944710780329:android:b191ded8f74e47c6a0b0b8",
+        "android_client_info": {
+          "package_name": "aniweeb.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944710780329-i1huddbaqoth17i1hdu0h8uqbv77ihc0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2Og-TSjn1b6EvRGIhEUr6Pbvxf1abYhY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944710780329-i1huddbaqoth17i1hdu0h8uqbv77ihc0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
