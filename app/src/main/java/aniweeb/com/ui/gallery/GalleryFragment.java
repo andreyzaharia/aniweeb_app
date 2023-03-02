@@ -1,6 +1,11 @@
 package aniweeb.com.ui.gallery;
 
+import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -264,5 +269,30 @@ public class GalleryFragment extends Fragment implements View.OnClickListener {
                 getEpisodes(date ,current_page);
                 break;
         }
+    }
+
+    private void alertValoraApp() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        builder.setMessage("Rate the app on Google Play!")
+                .setCancelable(false)
+                .setPositiveButton("Go to Google Play", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                        final String appPackageName = "aniweeb.com";
+
+                        try {
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                        } catch (android.content.ActivityNotFoundException anfe) {
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
+                        }
+                    }
+                })
+                .setNegativeButton("Not now", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }
