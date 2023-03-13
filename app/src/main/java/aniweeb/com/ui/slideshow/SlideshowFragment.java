@@ -23,11 +23,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.VolleyError;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -56,7 +51,6 @@ public class SlideshowFragment extends Fragment implements View.OnClickListener{
     private RecyclerView.LayoutManager layoutManager;
 
     private View progressbar;
-    private AdView mAdView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -73,9 +67,6 @@ public class SlideshowFragment extends Fragment implements View.OnClickListener{
 
     private void loadElements(View root) {
 
-        mAdView = root.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
 
         bt_finalizado = root.findViewById(R.id.lay_finalizado);
         bt_finalizado.setOnClickListener(this);

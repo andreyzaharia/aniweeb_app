@@ -19,11 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.interstitial.InterstitialAd;
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+
 import com.google.android.material.imageview.ShapeableImageView;
 import com.squareup.picasso.Picasso;
 
@@ -47,10 +43,6 @@ public class RandomFragment extends Fragment  implements View.OnClickListener {
     private Context mContext;
     private ShapeableImageView im_anime;
     private TextView TXT_Type, txt_episodes, txt_duration, txt_score, txt_title;
-    private AdView mAdView;
-
-    private InterstitialAd mInterstitialAd;
-    private AdRequest adRequest;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,7 +56,6 @@ public class RandomFragment extends Fragment  implements View.OnClickListener {
 
        View root = inflater.inflate(R.layout.fragment_random, container, false);
        mContext = getContext();
-       adRequest = new AdRequest.Builder().build();
 
        loadElements(root);
 
@@ -72,9 +63,6 @@ public class RandomFragment extends Fragment  implements View.OnClickListener {
     }
 
     private void loadElements(View root) {
-        mAdView = root.findViewById(R.id.adView);
-        //AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
 
         bt_randomAnime = root.findViewById(R.id.bt_getRandom);
         bt_randomAnime.setOnClickListener(this);
@@ -97,21 +85,6 @@ public class RandomFragment extends Fragment  implements View.OnClickListener {
         txt_title = includedLayout.findViewById(R.id.txt_title);
         lay_item = includedLayout.findViewById(R.id.lay_item);
 
-        InterstitialAd.load(mContext,getString(R.string.adUnitInterstecial_real), adRequest,
-                new InterstitialAdLoadCallback() {
-                    @Override
-                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                        // The mInterstitialAd reference will be null until
-                        // an ad is loaded.
-                        mInterstitialAd = interstitialAd;
-                    }
-
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        // Handle the error
-                        mInterstitialAd = null;
-                    }
-                });
     }
 
 
@@ -205,8 +178,7 @@ public class RandomFragment extends Fragment  implements View.OnClickListener {
                 break;
 
             case R.id.bt_again:
-                if (mInterstitialAd != null) {
-                    mInterstitialAd.show(getActivity());
+
                     lay_anime.setVisibility(View.GONE);
                     progressbar.setVisibility(View.VISIBLE);
 
@@ -216,12 +188,6 @@ public class RandomFragment extends Fragment  implements View.OnClickListener {
                             getRandomAnime();
                         }
                     }, 1000);
-                } else {
-                    Log.d("TAG", "The interstitial ad wasn't ready yet.");
-                    //changeView(2);
-                    Toast.makeText(mContext, "Ad loading, please wait.", Toast.LENGTH_SHORT).show();
-
-                }
 
                 break;
         }

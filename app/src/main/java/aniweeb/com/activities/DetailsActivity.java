@@ -14,17 +14,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.VolleyError;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.interstitial.InterstitialAd;
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.squareup.picasso.Picasso;
 
@@ -41,9 +35,7 @@ import java.util.Locale;
 import aniweeb.com.R;
 import aniweeb.com.URLs.URLs;
 import aniweeb.com.adapters.GenreAdapter;
-import aniweeb.com.adapters.PortadaAdapter;
 import aniweeb.com.models.Genero;
-import aniweeb.com.models.Portada;
 import aniweeb.com.restapi.RestAPIWebServices;
 
 /**
@@ -64,14 +56,10 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
     private int id_anime;
     private WebView web_trailer;
 
-    private InterstitialAd mInterstitialAd;
-    private AdRequest adRequest;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
-        adRequest = new AdRequest.Builder().build();
 
         loadElements();
     }
@@ -156,22 +144,6 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
 
         recyclerGeneros = findViewById(R.id.recyclerGeneros);
         layoutManagerGeneros = new LinearLayoutManager(DetailsActivity.this, LinearLayoutManager.HORIZONTAL,false);
-
-        InterstitialAd.load(this,getString(R.string.adUnitInterstecial_real), adRequest,
-                new InterstitialAdLoadCallback() {
-                    @Override
-                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                        // The mInterstitialAd reference will be null until
-                        // an ad is loaded.
-                        mInterstitialAd = interstitialAd;
-                    }
-
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        // Handle the error
-                        mInterstitialAd = null;
-                    }
-                });
 
         getAnimeDetails();
     }
@@ -363,17 +335,7 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.txt_Trailer:
-
-                if (mInterstitialAd != null) {
-                    mInterstitialAd.show(DetailsActivity.this);
-                    changeView(2);
-                } else {
-                    Log.d("TAG", "The interstitial ad wasn't ready yet.");
-                    //changeView(2);
-                    Toast.makeText(DetailsActivity.this, "Ad loading, please wait.", Toast.LENGTH_SHORT).show();
-
-                }
-
+                changeView(2);
                 break;
         }
     }

@@ -27,8 +27,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.VolleyError;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -62,7 +60,6 @@ public class GalleryFragment extends Fragment implements View.OnClickListener {
     private int current_page = 1;
 
     private String date = "";
-    private AdView mAdView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -85,9 +82,6 @@ public class GalleryFragment extends Fragment implements View.OnClickListener {
     }
 
     private void loadElements(View root) {
-        mAdView = root.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
 
         sp_day = root.findViewById(R.id.sp_day);
 

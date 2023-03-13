@@ -17,8 +17,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.VolleyError;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,7 +42,6 @@ public class HomeFragment extends Fragment {
     private ArrayList<Trailer> listTrailers;
     private LinearLayout progressbar;
     private Context mContext;
-    private AdView mAdView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -61,9 +58,6 @@ public class HomeFragment extends Fragment {
     }
 
     private void loadElements(View root) {
-        mAdView = root.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
 
         recyclerView = root.findViewById(R.id.recyclerView);
         progressbar = root.findViewById(R.id.progressBar);

@@ -11,10 +11,6 @@ import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.navigation.NavController;
@@ -65,13 +61,6 @@ public class MainActivity extends AppCompatActivity {
         /* Inside the activity */
 // Remove default title text
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
 
         TextView txtFecha = headerView.findViewById(R.id.txtFecha);
         // Obtienes la fecha actual

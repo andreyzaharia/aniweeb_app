@@ -25,8 +25,6 @@ import com.android.volley.VolleyError;
 import com.androidbuts.multispinnerfilter.KeyPairBoolData;
 import com.androidbuts.multispinnerfilter.MultiSpinnerListener;
 import com.androidbuts.multispinnerfilter.MultiSpinnerSearch;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -71,7 +69,6 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
 
     private String estado = "", temporada = "", generos = "";
     private int genre_id, current_page = 1;
-    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,9 +79,6 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void loadElements() {
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
 
         bt_Filters = findViewById(R.id.bt_Filters);
         bt_Filters.setOnClickListener(this);

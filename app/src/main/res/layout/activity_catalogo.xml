@@ -324,7 +324,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lay_base">
-
+<!--
         <com.google.android.gms.ads.AdView
             xmlns:ads="http://schemas.android.com/apk/res-auto"
             android:id="@+id/adView"
@@ -334,7 +334,7 @@
             android:layout_alignParentBottom="true"
             ads:adSize="SMART_BANNER"
             ads:adUnitId="@string/adUnitId_real">
-        </com.google.android.gms.ads.AdView>
+        </com.google.android.gms.ads.AdView>-->
     </LinearLayout>
 
     <LinearLayout

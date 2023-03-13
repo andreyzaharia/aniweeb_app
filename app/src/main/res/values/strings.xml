@@ -20,19 +20,6 @@
     <string name="general_error">It seems there was an error. Try again later</string>
 
 
-    <!-- IDS APIS -->
-    <string name="client_id">e23ae05e01e71b0478325eb5281ac713</string>
-
-    <string name="adUnitId_pruebas">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="adUnitId_real">ca-app-pub-2370610163894783/1857552124</string>
-
-    <string name="adUnitInterstecial_pruebas">ca-app-pub-3940256099942544/1033173712</string>
-    <string name="adUnitInterstecial_real">ca-app-pub-2370610163894783/7553689798</string>
-
-
-    <string name="ad_mob_manifest">ca-app-pub-2370610163894783~2108849470</string>
-
-
     <string name="ver_mas">See More</string>
     <string name="filtros">Filters..</string>
     <string name="directorio_anime">Anime Directory</string>
