@@ -250,18 +250,13 @@ public class GalleryFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.bt_verMas:
-                //recoger filtros
-                current_page += 1;
-                getEpisodes(date ,current_page);
-                break;
-
-            case R.id.bt_verMenos:
-                //recoger filtros
-                current_page -= 1;
-                getEpisodes(date ,current_page);
-                break;
+        int id = view.getId();
+        if (id == R.id.bt_verMas) {//recoger filtros
+            current_page += 1;
+            getEpisodes(date, current_page);
+        } else if (id == R.id.bt_verMenos) {//recoger filtros
+            current_page -= 1;
+            getEpisodes(date, current_page);
         }
     }
 

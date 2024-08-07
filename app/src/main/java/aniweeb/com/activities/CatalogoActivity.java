@@ -342,28 +342,18 @@ public class CatalogoActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.bt_Filters:
-                toggle = !toggle;
-                toggleFiltersLayout(toggle);
-                break;
-
-            case R.id.bt_filtrar:
-                //recoger filtros
-                getFilters();
-                break;
-
-            case R.id.bt_verMas:
-                //recoger filtros
-                current_page += 1;
-                getAnime(current_page);
-                break;
-
-            case R.id.bt_verMenos:
-                //recoger filtros
-                current_page -= 1;
-                getAnime(current_page);
-                break;
+        int id = view.getId();
+        if (id == R.id.bt_Filters) {
+            toggle = !toggle;
+            toggleFiltersLayout(toggle);
+        } else if (id == R.id.bt_filtrar) {//recoger filtros
+            getFilters();
+        } else if (id == R.id.bt_verMas) {//recoger filtros
+            current_page += 1;
+            getAnime(current_page);
+        } else if (id == R.id.bt_verMenos) {//recoger filtros
+            current_page -= 1;
+            getAnime(current_page);
         }
     }
 

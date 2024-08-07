@@ -190,23 +190,16 @@ public class SlideshowFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.lay_finalizado:
-                getAnimeRanking("tv", 1);
-                break;
-
-            case R.id.lay_emision:
-                getAnimeRanking("airing", 2);
-                break;
-
-            case R.id.lay_prox:
-                getAnimeRanking("upcoming", 3);
-                break;
-
-            case R.id.bt_verMas:
-                Intent i = new Intent(getContext(), CatalogoActivity.class);
-                startActivity(i);
-                break;
+        int id = view.getId();
+        if (id == R.id.lay_finalizado) {
+            getAnimeRanking("tv", 1);
+        } else if (id == R.id.lay_emision) {
+            getAnimeRanking("airing", 2);
+        } else if (id == R.id.lay_prox) {
+            getAnimeRanking("upcoming", 3);
+        } else if (id == R.id.bt_verMas) {
+            Intent i = new Intent(getContext(), CatalogoActivity.class);
+            startActivity(i);
         }
     }
 

@@ -172,24 +172,19 @@ public class RandomFragment extends Fragment  implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.bt_getRandom:
-                getRandomAnime();
-                break;
+        int id = view.getId();
+        if (id == R.id.bt_getRandom) {
+            getRandomAnime();
+        } else if (id == R.id.bt_again) {
+            lay_anime.setVisibility(View.GONE);
+            progressbar.setVisibility(View.VISIBLE);
 
-            case R.id.bt_again:
-
-                    lay_anime.setVisibility(View.GONE);
-                    progressbar.setVisibility(View.VISIBLE);
-
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            getRandomAnime();
-                        }
-                    }, 1000);
-
-                break;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    getRandomAnime();
+                }
+            }, 1000);
         }
     }
 }

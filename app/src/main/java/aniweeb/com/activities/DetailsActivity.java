@@ -315,28 +315,21 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.im_back:
-                finish();
-                break;
-
-            case R.id.im_mas:
-                if(TVDescription.getMaxLines() == 100) {
-                    im_mas.setImageDrawable(getResources().getDrawable(R.drawable.icons8_doble_abajo_64));
-                    TVDescription.setMaxLines(5);
-                }else if(TVDescription.getLineCount() > 4){
-                    im_mas.setImageDrawable(getResources().getDrawable(R.drawable.icons8_cheur_n_96___));
-                    TVDescription.setMaxLines(100);
-                }
-                break;
-
-            case R.id.txt_Details:
-                changeView(1);
-                break;
-
-            case R.id.txt_Trailer:
-                changeView(2);
-                break;
+        int id = view.getId();
+        if (id == R.id.im_back) {
+            finish();
+        } else if (id == R.id.im_mas) {
+            if (TVDescription.getMaxLines() == 100) {
+                im_mas.setImageDrawable(getResources().getDrawable(R.drawable.icons8_doble_abajo_64));
+                TVDescription.setMaxLines(5);
+            } else if (TVDescription.getLineCount() > 4) {
+                im_mas.setImageDrawable(getResources().getDrawable(R.drawable.icons8_cheur_n_96___));
+                TVDescription.setMaxLines(100);
+            }
+        } else if (id == R.id.txt_Details) {
+            changeView(1);
+        } else if (id == R.id.txt_Trailer) {
+            changeView(2);
         }
     }
 
